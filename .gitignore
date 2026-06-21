@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+*.pyo
+# Ignore the memory directory where conversation threads are stored
+graph/data/threads/
+.vscode/
+# Ignore the .env file containing sensitive information

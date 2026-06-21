@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import ast; ast.parse\\(open\\('agents/climate_agent.py'\\).read\\(\\)\\); print\\('climate_agent.py: OK'\\)\")",
+      "Bash(python -c \"import ast; ast.parse\\(open\\('agents/budget_agent.py'\\).read\\(\\)\\); print\\('budget_agent.py: OK'\\)\")",
+      "Bash(python -c \"import ast; ast.parse\\(open\\('agents/composer_agent.py'\\).read\\(\\)\\); print\\('composer_agent.py: OK'\\)\")"
+    ]
+  }
+}
