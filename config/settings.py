@@ -33,9 +33,11 @@ class Settings(BaseSettings):
 
     # Places API
     GEOAPIFY_API_KEY: SecretStr | None = None
+    GEOAPIFY_VERIFY_SSL: bool = True
 
     # Routing API
     OPENROUTESERVICE_API_KEY: SecretStr | None = None
+    OPENWEATHER_VERIFY_SSL: bool = True
 
     # Default values
     DEFAULT_CURRENCY: str = Field(default="INR")
@@ -44,6 +46,7 @@ class Settings(BaseSettings):
         env_file=".env",
         env_file_encoding="utf-8",
         case_sensitive=False,
+        extra="ignore"
     )
 
 

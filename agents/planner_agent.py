@@ -63,7 +63,26 @@ class PlannerAgent:
             raise RuntimeError(f"Gemini returned invalid JSON: {exc}") from exc
 
         # Populate the state
-        state.destination = data.get("destination")
+        new_destination = data.get("destination")
+
+        if new_destination and new_destination != state.destination:
+            state.destination = new_destination
+
+            state.recommended_experiences = None
+            state.climate_assessment = None
+            state.optimized_route = None
+            state.budget_analysis = None
+            state.itinerary = None
+
+            state.latitude = None
+            state.longitude = None
+
+            state.decision_log.append(
+                f"Planner: Destination changed to {new_destination}. Cleared old agent outputs."
+        )
+
+        else:
+            state.destination = new_destination or state.destination
         state.start_date = self._parse_date(data.get("start_date"))
         if state.start_date:
             state.travel_month = state.travel_month or state.start_date.month
